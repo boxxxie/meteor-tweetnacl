@@ -1,0 +1,3 @@
+[submodule "tweetnacl-js"]
+	path = tweetnacl-js
+	url = https://github.com/dchest/tweetnacl-js.git
