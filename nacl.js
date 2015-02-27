@@ -1200,6 +1200,9 @@ nacl.setPRNG = function(fn) {
         cleanup(v);
       });
     }
+    else{
+      console.log("crypto package not found");
+    }
   }
 })();
 
