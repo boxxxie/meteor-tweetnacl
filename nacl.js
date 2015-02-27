@@ -1200,6 +1200,9 @@ nacl.setPRNG = function(fn) {
         cleanup(v);
       });
     }
+    else{
+      throw "there is no crypto package available on the server";
+    }
   }
 })();
 
