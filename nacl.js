@@ -1175,7 +1175,7 @@ nacl.setPRNG = function(fn) {
   // Initialize PRNG if environment provides CSPRNG.
   // If not, methods calling randombytes will throw.
   var crypto;
-  if (typeof window !== 'undefined') {
+  if (Meteor.isClient) {
     // Browser.
     if (window.crypto && window.crypto.getRandomValues) {
       crypto = window.crypto; // Standard
@@ -1190,7 +1190,7 @@ nacl.setPRNG = function(fn) {
         cleanup(v);
       });
     }
-  } else if (typeof Npm.require !== 'undefined') {
+  } else if (Meteor.isServer) {
     // Node.js.
     crypto = Npm.require('crypto');
     if (crypto) {
