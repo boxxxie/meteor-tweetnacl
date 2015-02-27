@@ -1,6 +1,6 @@
 Package.describe({
   name: 'boxxxie:tweetnacl',
-  version: '0.0.3',
+  version: '0.0.4',
   // Brief, one-line summary of the package.
   summary: 'git@github.com:boxxxie/meteor-tweetnacl.git',
   // URL to the Git repository containing the source code for this package.
@@ -24,9 +24,27 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('boxxxie:tweetnacl');
-  api.addFiles('boxxxie:tweetnacl-tests.js');
-});
 
-Npm.depends({
-  crypto: "0.0.3"
+  api.addFiles([
+    'test/data/base64.random.js',
+    'test/data/onetimeauth.spec.js',
+    'test/data/secretbox.random.js',
+    'test/data/sign.spec.js',
+    'test/data/scalarmult.random.js',
+    'test/data/hash.random.js',
+    'test/data/sign.spec.js'
+  ], ['client', 'server']);
+
+  api.addFiles([
+    'test/00-api.js',
+    'test/00-utils.js',
+    'test/01-verify.quick.js',
+    'test/02-randombytes.quick.js',
+    'test/03-onetimeauth.quick.js',
+    'test/04-secretbox.js',
+    'test/04-secretbox.quick.js',
+    'test/05-scalarmult.js',
+    'test/07-hash.js',
+    'test/08-sign.js'
+  ], ['client', 'server']);
 });
