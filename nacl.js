@@ -1190,9 +1190,9 @@ nacl.setPRNG = function(fn) {
         cleanup(v);
       });
     }
-  } else if (typeof require !== 'undefined') {
+  } else if (typeof Npm.require !== 'undefined') {
     // Node.js.
-    crypto = require('crypto');
+    crypto = Npm.require('crypto');
     if (crypto) {
       nacl.setPRNG(function(x, n) {
         var i, v = crypto.randomBytes(n);
