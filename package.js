@@ -26,3 +26,7 @@ Package.onTest(function(api) {
   api.use('boxxxie:tweetnacl');
   api.addFiles('boxxxie:tweetnacl-tests.js');
 });
+
+Npm.depends({
+  crypto: "0.0.3"
+});
