@@ -1,0 +1,1 @@
+nacl = Npm.require("tweetnacl");

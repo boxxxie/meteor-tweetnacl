@@ -1,4 +1,5 @@
-nacl = {}
+(function(nacl) {
+'use strict';
 
 // Ported in 2014 by Dmitry Chestnykh and Devi Mandiri.
 // Public domain.
@@ -1175,7 +1176,7 @@ nacl.setPRNG = function(fn) {
   // Initialize PRNG if environment provides CSPRNG.
   // If not, methods calling randombytes will throw.
   var crypto;
-  if (Meteor.isClient) {
+  if (typeof window !== 'undefined') {
     // Browser.
     if (window.crypto && window.crypto.getRandomValues) {
       crypto = window.crypto; // Standard
@@ -1190,9 +1191,9 @@ nacl.setPRNG = function(fn) {
         cleanup(v);
       });
     }
-  } else if (Meteor.isServer) {
+  } else if (typeof require !== 'undefined') {
     // Node.js.
-    crypto = Npm.require('crypto');
+    crypto = require('crypto');
     if (crypto) {
       nacl.setPRNG(function(x, n) {
         var i, v = crypto.randomBytes(n);
@@ -1200,9 +1201,7 @@ nacl.setPRNG = function(fn) {
         cleanup(v);
       });
     }
-    else{
-      throw "there is no crypto package available on the server";
-    }
   }
 })();
 
+})(typeof module !== 'undefined' && module.exports ? module.exports : (window.nacl = window.nacl || {}));

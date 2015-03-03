@@ -13,9 +13,8 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.0.3.2');
 
-  api.addFiles([
-    'nacl.js'
-  ], ['server', 'client']);
+  api.addFiles("client/compatibility/client.js", 'client');
+  api.addFiles("server/server.js", 'server');
 
   api.export('nacl');
 
@@ -47,4 +46,8 @@ Package.onTest(function(api) {
     'test/07-hash.js',
     'test/08-sign.js'
   ], ['client', 'server']);
+});
+
+Npm.depends({
+  "tweetnacl" : "0.13.0"
 });
