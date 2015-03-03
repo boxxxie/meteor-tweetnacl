@@ -1203,5 +1203,5 @@ nacl.setPRNG = function(fn) {
     }
   }
 })();
-
-})(typeof module !== 'undefined' && module.exports ? module.exports : (window.nacl = window.nacl || {}));
+})(nacl = {})
+//})(typeof module !== 'undefined' && module.exports ? module.exports : (window.nacl = window.nacl || {}));
