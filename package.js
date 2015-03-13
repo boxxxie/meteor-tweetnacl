@@ -4,7 +4,7 @@ Package.describe({
   // Brief, one-line summary of the package.
   summary: 'git@github.com:boxxxie/meteor-tweetnacl.git',
   // URL to the Git repository containing the source code for this package.
-  git: 'https://atmospherejs.com/boxxxie/tweetnacl',
+  git: 'https://github.com/boxxxie/meteor-tweetnacl.git',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
